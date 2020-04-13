@@ -34,6 +34,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'login',
   data () {
@@ -46,6 +48,9 @@ export default {
     }
   },
   computed: {
+    ...mapGetters([
+      'isAuthenticated',
+    ]),
     formReady () {
       return !this.emailErrors.length && !this.passwordErrors.length
     },
@@ -57,7 +62,10 @@ export default {
       if (!this.formReady) {
         return
       }
-      this.$router.push({ name: 'dashboard' })
+      this.$store.dispatch('login', {
+        email: this.email,
+        password: this.password,
+      })
     },
   },
 }
