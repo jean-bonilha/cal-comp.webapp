@@ -31,16 +31,16 @@ export default {
       type: Array,
       default: () => [
         {
+          code: 'br',
+          name: 'brazilian_portuguese',
+        },
+        {
           code: 'gb',
           name: 'english',
         },
         {
           code: 'es',
           name: 'spanish',
-        },
-        {
-          code: 'br',
-          name: 'brazilian_portuguese',
         },
         {
           code: 'cn',
