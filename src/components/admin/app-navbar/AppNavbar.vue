@@ -68,7 +68,7 @@ export default {
   },
   data () {
     return {
-      userName: 'Vasili S',
+      userName: 'Jean B.',
     }
   },
   computed: {
