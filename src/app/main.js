@@ -15,6 +15,8 @@ import VueClipboard from 'vue-clipboard2'
 
 import '../metrics'
 import '../registerServiceWorker'
+import '../services/http/vue-plugin-axios'
+import '../services/http/vue-rest'
 
 if (process.env.VUE_APP_BUILD_VERSION) {
   // eslint-disable-next-line
