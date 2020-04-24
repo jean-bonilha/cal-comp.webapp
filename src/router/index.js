@@ -25,6 +25,12 @@ export default new Router({
           component: () => import('../components/dashboard/Dashboard.vue'),
           default: true,
         },
+        {
+          name: 'dqcmodel',
+          path: 'dqcmodel',
+          component: () => import('../components/cruds/DQCMODEL/List.vue'),
+          default: true,
+        },
       ],
     },
   ],

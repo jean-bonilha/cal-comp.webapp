@@ -11,5 +11,12 @@ export const navigationRoutes = {
         iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
       },
     },
+    {
+      name: 'dqcmodel',
+      displayName: 'menu.dqcmodel',
+      meta: {
+        iconClass: 'vuestic-iconset vuestic-iconset-components',
+      },
+    },
   ],
 }
