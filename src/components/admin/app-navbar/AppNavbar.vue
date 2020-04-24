@@ -45,6 +45,7 @@ import VaIconMenu from '../../../iconset/VaIconMenu'
 import VaIconMenuCollapsed from '../../../iconset/VaIconMenuCollapsed'
 import AppNavbarActions from './components/AppNavbarActions'
 import { colorShiftHsl, ColorThemeMixin } from '../../../services/vuestic-ui'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'app-navbar',
@@ -66,12 +67,8 @@ export default {
       required: true,
     },
   },
-  data () {
-    return {
-      userName: 'Jean B.',
-    }
-  },
   computed: {
+    ...mapGetters(['userName']),
     isTopBarProxy: {
       get () {
         return this.isTopBar
