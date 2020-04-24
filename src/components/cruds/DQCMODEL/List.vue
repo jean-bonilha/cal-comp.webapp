@@ -44,15 +44,15 @@ export default {
       }, {
         name: 'MODEL',
         title: 'MODEL',
-        width: '70%',
+        width: '60%',
       }, {
         name: 'UPDATE_DT',
         title: 'ATUALIZADO EM',
-        width: '15%',
+        width: '20%',
       }, {
         name: 'CREATE_DT',
         title: 'CRIADO EM',
-        width: '15%',
+        width: '20%',
       }]
     },
   },
