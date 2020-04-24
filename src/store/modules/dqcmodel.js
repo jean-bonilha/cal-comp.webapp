@@ -1,7 +1,5 @@
-import axios from 'axios'
-
-const setList = async ({ commit }, params) => {
-  const { data } = await axios.get('http://localhost/api/dqcmodel', { params })
+const setList = async ({ commit }, get) => {
+  const { data } = await get('/dqcmodel')
   commit('SET_LIST', data)
 }
 

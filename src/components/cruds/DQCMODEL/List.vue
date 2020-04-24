@@ -59,12 +59,7 @@ export default {
   methods: {
     ...mapActions('dqcmodel', ['setList']),
     readItems (page = 0) {
-      const params = {
-        per_page: this.perPage,
-        page: page,
-      }
-
-      this.setList(params)
+      this.setList(this.$axios.get)
     },
   },
   async mounted () {
