@@ -5,6 +5,8 @@
       position="top"
       :title="modalTitle"
       :message="modalMessage"
+      :okText=" $t('modal.confirm') "
+      :cancelText=" $t('modal.cancel') "
     />
     <va-card title="lista dqcmodel">
       <div class="row">
