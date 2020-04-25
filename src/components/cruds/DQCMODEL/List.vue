@@ -1,18 +1,35 @@
 <template>
-  <va-card :title="$t('tables.serverSidePagination')">
-    <va-data-table
-      :fields="fields"
-      :data="list"
-      :loading="loading"
-      :totalPages="totalPages"
-      @page-selected="readItems"
-      api-mode
-    >
-      <template slot="avatar" slot-scope="props">
-        <img :src="props.rowData.avatar" class="data-table-server-pagination---avatar">
-      </template>
-    </va-data-table>
-  </va-card>
+  <div>
+    <va-modal
+      v-model="showModal"
+      position="top"
+      :title="modalTitle"
+      :message="modalMessage"
+    />
+    <va-card title="lista dqcmodel">
+      <div class="row">
+        <div class="flex">
+          <va-button color="info" @click="loadItems"> ATUALIZAR</va-button>
+          <va-button color="dark" @click="showItem"> NOVO</va-button>
+        </div>
+      </div>
+      <va-data-table
+        :fields="fields"
+        :data="list"
+        no-pagination
+      >
+        <template slot="actions" slot-scope="props">
+          <va-button flat small color="gray" @click="editItem(props.rowData)" class="ma1">
+            Editar
+          </va-button>
+
+          <va-button flat small color="danger" @click="deleteItem(props.rowData)" class="ma-0">
+            Excluir
+          </va-button>
+        </template>
+      </va-data-table>
+    </va-card>
+  </div>
 </template>
 
 <script>
@@ -22,16 +39,10 @@ export default {
   name: 'list-dqcmodel',
   data () {
     return {
-      perPage: 3,
-      totalPages: 0,
       loading: false,
-      withIcon: '',
-      instructions: [
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
-      ],
-      createdAt: 'Data da criação',
-      updatedAt: 'Data da última atualização',
+      showModal: false,
+      modalTitle: 'aviso',
+      modalMessage: '',
     }
   },
   computed: {
@@ -44,7 +55,7 @@ export default {
       }, {
         name: 'MODEL',
         title: 'MODEL',
-        width: '60%',
+        width: '40%',
       }, {
         name: 'UPDATE_DT',
         title: 'ATUALIZADO EM',
@@ -53,19 +64,52 @@ export default {
         name: 'CREATE_DT',
         title: 'CRIADO EM',
         width: '20%',
+      }, {
+        name: '__slot:actions',
+        dataClass: 'text-right',
       }]
     },
   },
-  methods: {
-    ...mapActions('dqcmodel', ['setList']),
-    readItems (page = 0) {
-      this.setList(this.$axios.get)
-    },
+  mounted () {
+    this.loadItems()
   },
-  async mounted () {
-    this.loading = true
-    await this.readItems()
-    this.loading = false
+  methods: {
+    ...mapActions('dqcmodel', ['setList', 'removeItem']),
+    async loadItems (page = 0) {
+      this.loading = true
+      await this.setList(this.$axios.get)
+      this.loading = false
+    },
+    editItem (item) {
+      this.$router.push({
+        name: 'dqcmodel-edit',
+        path: `dqcmodel/edit/${item.ID}`,
+        params: {
+          route: 'dqcmodel',
+          id: item.ID,
+        },
+      })
+    },
+    showItem () {
+      this.$router.push({
+        name: 'dqcmodel-create',
+        params: {
+          route: 'dqcmodel',
+        },
+      })
+    },
+    deleteItem (item) {
+      this.removeItem({
+        axiosDelete: this.$axios.delete,
+        item,
+      }).then(res => {
+        if (res.status === 200) {
+          this.modalMessage = 'O item foi excluido com sucesso da lista.'
+          this.showModal = true
+          this.setList(this.$axios.get)
+        }
+      })
+    },
   },
 }
 </script>
