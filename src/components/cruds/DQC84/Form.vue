@@ -21,7 +21,6 @@
                   :options="selectOptions"
                   :loading="selectLoading"
                   :error="!!modelErrors.length"
-                  @update-search="updateOptions"
                   @focus.native="onFocus"
                 />
                 <va-input
@@ -101,8 +100,6 @@ export default {
     }
   },
   created () {
-    this.requestObj.CREATE_DT = Date.now()
-    this.requestObj.UPDATE_DT = Date.now()
     if (this.$route.params.id) {
       this.load(this.$route.params.id)
     }
@@ -152,8 +149,6 @@ export default {
         .then(() => {
           this.selectLoading = false
         })
-    },
-    updateOptions (text) {
     },
     saveOk (res) {
       if (res.status === 201) {
