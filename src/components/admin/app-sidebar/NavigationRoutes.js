@@ -25,5 +25,12 @@ export const navigationRoutes = {
         iconClass: 'vuestic-iconset vuestic-iconset-tables',
       },
     },
+    {
+      name: 'dqc841',
+      displayName: 'menu.dqc841',
+      meta: {
+        iconClass: 'vuestic-iconset vuestic-iconset-tables',
+      },
+    },
   ],
 }
