@@ -72,8 +72,6 @@ export default {
     }
   },
   created () {
-    this.requestObj.CREATE_DT = Date.now()
-    this.requestObj.UPDATE_DT = Date.now()
     if (this.$route.params.id) {
       this.load(this.$route.params.id)
     }
