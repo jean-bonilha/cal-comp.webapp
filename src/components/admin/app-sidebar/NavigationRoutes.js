@@ -15,7 +15,14 @@ export const navigationRoutes = {
       name: 'dqcmodel',
       displayName: 'menu.dqcmodel',
       meta: {
-        iconClass: 'vuestic-iconset vuestic-iconset-components',
+        iconClass: 'vuestic-iconset vuestic-iconset-tables',
+      },
+    },
+    {
+      name: 'dqc84',
+      displayName: 'menu.dqc84',
+      meta: {
+        iconClass: 'vuestic-iconset vuestic-iconset-tables',
       },
     },
   ],

@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import VuexI18n from 'vuex-i18n' // load vuex i18n module
 import app from './modules/app'
 import dqcmodel from './modules/dqcmodel'
+import dqc84 from './modules/dqc84'
 import auth from './modules/auth'
 
 import * as getters from './getters'
@@ -15,6 +16,7 @@ const store = new Vuex.Store({
   modules: {
     app,
     dqcmodel,
+    dqc84,
     auth,
   },
   state: {},

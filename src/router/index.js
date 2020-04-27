@@ -51,6 +51,23 @@ export default new Router({
           component: () => import('../components/dashboard/Dashboard.vue'),
         },
         {
+          name: 'dqc84',
+          path: 'dqc84',
+          component: () => import('../components/cruds/DQC84/List.vue'),
+        },
+        {
+          name: 'dqc84-edit',
+          path: 'dqc84/edit/:id',
+          component: () => import('../components/cruds/DQC84/Form.vue'),
+          props: true,
+        },
+        {
+          name: 'dqc84-create',
+          path: 'dqc84/create',
+          component: () => import('../components/cruds/DQC84/Form.vue'),
+          props: true,
+        },
+        {
           name: 'dqcmodel',
           path: 'dqcmodel',
           component: () => import('../components/cruds/DQCMODEL/List.vue'),
