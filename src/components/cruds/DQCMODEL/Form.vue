@@ -108,16 +108,16 @@ export default {
       if (!this.formReady) {
         return
       }
-      this.save(this.showOk, this.showErr)
+      this.save(this.saveOk, this.saveErr)
     },
-    showOk (res) {
+    saveOk (res) {
       if (res.status === 201) {
         this.reloadForm(res.data.id, 'O item foi salvo com sucesso!')
         return
       }
       this.reloadForm(this.requestObj.ID, res.data.message)
     },
-    showErr (res) {
+    saveErr (res) {
       this.modalMessage = 'Houve um erro ao tentar salvar as informacoes, provavelmente ja existe um item salvo igual a este.'
       this.showModal = true
     },
