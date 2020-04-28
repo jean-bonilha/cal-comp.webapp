@@ -32,5 +32,12 @@ export const navigationRoutes = {
         iconClass: 'vuestic-iconset vuestic-iconset-tables',
       },
     },
+    {
+      name: 'reports',
+      displayName: 'menu.reports',
+      meta: {
+        iconClass: 'vuestic-iconset vuestic-iconset-statistics',
+      },
+    },
   ],
 }

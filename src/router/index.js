@@ -101,6 +101,11 @@ export default new Router({
           component: () => import('../components/cruds/DQC841/Form.vue'),
           props: true,
         },
+        {
+          name: 'reports',
+          path: 'reports',
+          component: () => import('../components/cruds/GeneralReport.vue'),
+        },
       ],
     },
   ],
